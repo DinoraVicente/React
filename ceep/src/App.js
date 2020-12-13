@@ -5,11 +5,19 @@ import "./assets/App.css";
 import './assets/index.css';
 
 class App extends Component {
+  
+  constructor(){
+    this.notas = [];
+  }
+
+  criarNota(titulo, texto){
+    console.log(`Um novo card ${titulo} ${texto}`)
+  }
   render() {
     return (
       <section className="conteudo">
-        <FormularioCadastro />
-        <ListaDeNotas />
+        <FormularioCadastro criarNota={this.criarNota} />
+        <ListaDeNotas notas={this.notas} />
       </section>
     );
   }
